@@ -5,7 +5,7 @@ import LaunchItem from '../LaunchItem';
 
 const LAUNCHES_QUERY = gql `
     query LaunchList {
-        launchesPast {
+        launchesPast(limit: 10) {
             id
             launch_year
             mission_name

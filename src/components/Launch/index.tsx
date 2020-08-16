@@ -30,12 +30,12 @@ const Launch = () => {
         variables: { id }
     });
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <div className="launch-page">Loading...</div>;
     if (error) {
       console.log(error); 
       return <p>Error happen</p>;
     }
-    console.log(data)
+
     const {
       launch_date_utc,
       launch_site: { site_name },
@@ -45,7 +45,7 @@ const Launch = () => {
     } = data.launch;
 
     return (
-        <div>
+        <div className="launch-page">
             <h1>{mission_name}</h1>
 
         </div>

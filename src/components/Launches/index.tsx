@@ -21,15 +21,14 @@ const Launches = () => {
 
     const { loading, error, data } = useQuery(LAUNCHES_QUERY);
     
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <div className="launches"><p>Loading...</p></div>;
     if (error) {
       console.log(error); 
       return <p>Error happen</p>;
     }
     console.log(data)
     return (
-        <div>
-            <h1>Launches</h1>
+        <div className="launches">
             {
                 data.launchesPast.map((launch:any) => (
                 <LaunchItem key={launch.id} launch={launch} />

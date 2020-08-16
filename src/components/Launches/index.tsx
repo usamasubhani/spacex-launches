@@ -5,18 +5,15 @@ import LaunchItem from '../LaunchItem';
 
 const LAUNCHES_QUERY = gql `
     query LaunchList {
-      launchesPast(limit: 10) {
-      mission_name
-      id
-      links {
-          flickr_images
-          mission_patch_small
-      }
-      rocket {
-          rocket_name
-      }
-      launch_date_utc
-      }
+        launchesPast {
+            id
+            launch_year
+            mission_name
+            rocket {
+              rocket_name
+            }
+            launch_success
+          }
     }  
 `
 

@@ -1,6 +1,11 @@
 .title {
     font-size: 14px,
-  }
+}
+
+.label {
+    font-size: 24px;
+    color: gainsboro
+}
 
 .launches {
     display: flex;
@@ -26,4 +31,14 @@
 
 .launch-page {
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    /* justify-content: center; */
+}
+
+.image {
+    /* height: 500px; */
+    width: 100%;
 }

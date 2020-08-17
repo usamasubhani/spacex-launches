@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks'; 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
@@ -13,9 +13,14 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const [darkState, setDarkState] = useState(false);
+  const palletType = darkState ? "dark" : "light";
+  const handleThemeChange = () => {
+    setDarkState(!darkState);
+  };
   const theme = createMuiTheme({
     palette: {
-      type: "dark",
+      type: palletType
     },
   })
   return (
@@ -24,7 +29,7 @@ function App() {
         <Paper>
           <div className="App">
             <Router>
-              <Navigation />
+              <Navigation toggle={handleThemeChange} />
               <Routes>
                 <Route path="/" element={<Launches />} />
                 <Route path="launch/:id" element={<Launch />} />

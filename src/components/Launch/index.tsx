@@ -2,7 +2,7 @@ import React from 'react'
 import { gql } from 'apollo-boost';
 import { useParams } from 'react-router-dom'
 import { useQuery } from '@apollo/react-hooks';
-import { Typography, Paper, Grid, Container, CircularProgress } from '@material-ui/core';
+import { Typography, Paper, Grid, Container, CircularProgress, List, ListItem, Divider } from '@material-ui/core';
 import Moment from 'react-moment';
 
 const LAUNCH_QUERY = gql `
@@ -51,16 +51,34 @@ const Launch = () => {
     return (
         <div >
           <Container className="launch-page" maxWidth="lg">
-            <Typography gutterBottom> <span className="label"> </span><Moment format="DD-MM-YYYY">{launch_date_utc}</Moment> </Typography>
-            <Typography variant="h4" gutterBottom> <span className="label">Mission: </span> {mission_name}</Typography>
-            <Typography variant="h4" gutterBottom> <span className="label">Rocket: </span> {rocket_name}</Typography>
-            <Typography variant="h4" gutterBottom> <span className="label">Launch Site: </span> {site_name}</Typography>
+            <List>
+              <ListItem>
+                <Typography gutterBottom> <span className="label"> </span><Moment format="DD-MM-YYYY">{launch_date_utc}</Moment> </Typography>
+              </ListItem>
+              <Divider />
+              <ListItem>
+                <Typography variant="h5" gutterBottom> <span className="label">Mission: </span> {mission_name}</Typography>
+              </ListItem>
+              <Divider />
+              <ListItem>
+                <Typography variant="h5" gutterBottom> <span className="label">Rocket: </span> {rocket_name}</Typography>
+              </ListItem>
+              <Divider />
+              <ListItem>
+                <Typography variant="h5" gutterBottom> <span className="label">Launch Site: </span> {site_name}</Typography>
+              </ListItem>
+              <Divider />
+              <ListItem>
+                <Typography gutterBottom>{details}</Typography>
+              </ListItem>
+              <Divider />
+            </List>
             
-            <Typography gutterBottom>{details}</Typography>
+
             <Grid container spacing={2}>
               {
                 flickr_images.map((image : string) => 
-                <Grid item >
+                <Grid item key={Math.floor((Math.random() * 100) + 1)} >
                   <img className="image" src={image} />
                 </Grid>
                 )

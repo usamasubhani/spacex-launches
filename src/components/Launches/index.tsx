@@ -21,7 +21,7 @@ const Launches = () => {
 
     const { loading, error, data } = useQuery(LAUNCHES_QUERY);
     
-    if (loading) return <div className="launches"><p>Loading...</p></div>;
+    if (loading) return <div className="launches" style={{marginTop: "40vh"}}><CircularProgress /></div>;
     if (error) {
       console.log(error); 
       return <p>Error happen</p>;

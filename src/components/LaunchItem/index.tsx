@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 import Link from '@material-ui/core/Link';
-import { Card, CardContent, Typography, makeStyles, Button, CardActions } from '@material-ui/core';
+import { Card, CardContent, Typography, makeStyles, Button, CardActions, Avatar, CardHeader, IconButton, CardMedia } from '@material-ui/core';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 
 
@@ -14,15 +15,25 @@ const LaunchItem:React.FC<Props> = ({launch}) => {
         launch_year,
         mission_name,
         rocket: { rocket_name },
-        launch_success
+        launch_success,
+        links: {mission_patch_small, flickr_images}
       } = launch;
 
     return (
-        <Card className="launch-item">
-          <CardContent>
-            <Typography className="title" color="textSecondary" gutterBottom>{launch_year}</Typography>
-            <Typography variant="h5" component="h2">{mission_name}</Typography>
-        </CardContent>
+        <Card className="launch-item" elevation={3}>
+            <CardHeader
+                avatar={
+                    <Avatar alt="patch" src={mission_patch_small} />
+                }
+                title={mission_name}
+                subheader={launch_year}
+            />
+            <CardMedia
+                style={{height: 0,
+                    paddingTop: '56.25%'}}
+                image={flickr_images[0]}
+                title={mission_name}
+            />
         <CardActions>
             <Button size="small" component={RouterLink} to={`/launch/${launch.id}`} > Details </Button>
         </CardActions>

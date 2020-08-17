@@ -2,23 +2,25 @@ import React from 'react'
 import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
 import LaunchItem from '../LaunchItem';
+import { Grid, Container, CircularProgress } from '@material-ui/core';
+
 
 const LAUNCHES_QUERY = gql `
     query LaunchList {
         launchesPast(limit: 30) {
-            id
-            launch_year
-            mission_name
-            rocket {
-              rocket_name
-            }
-            launch_success
+        id
+        launch_year
+        mission_name
+        rocket {
+            rocket_name
+        }
+        launch_success
         links {
             mission_patch_small
             flickr_images
         }
-          }
-    }  
+        }
+    } 
 `
 
 const Launches = () => {

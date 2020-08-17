@@ -29,11 +29,15 @@ const Launches = () => {
     console.log(data)
     return (
         <div className="launches">
+            <Grid container spacing={3}>
             {
                 data.launchesPast.map((launch:any) => (
-                <LaunchItem key={launch.id} launch={launch} />
+                <Grid item xs={12} sm={6} key={launch.id} >
+                    <LaunchItem launch={launch} />
+                </Grid>
                 ))
             }
+            </Grid>
         </div>
     )
 }

@@ -36,7 +36,7 @@ const Launch = () => {
     if (loading) return <div className="launch-page"><CircularProgress /></div>;
     if (error) {
       console.log(error); 
-      return <p>Error happen</p>;
+      return <div className="launch-page">Error Occored</div>;
     }
 
     const {

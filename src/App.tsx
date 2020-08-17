@@ -9,7 +9,7 @@ import Launch from './components/Launch';
 import { ThemeProvider, createMuiTheme, Paper } from '@material-ui/core';
 
 const client = new ApolloClient({
-  uri: 'http://api.spacex.land/graphql/',
+  uri: 'https://api.spacex.land/graphql/',
 });
 
 function App() {

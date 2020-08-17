@@ -13,6 +13,10 @@ const LAUNCHES_QUERY = gql `
               rocket_name
             }
             launch_success
+        links {
+            mission_patch_small
+            flickr_images
+        }
           }
     }  
 `

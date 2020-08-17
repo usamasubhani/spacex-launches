@@ -5,7 +5,6 @@ import { Card, CardContent, Typography, makeStyles, Button, CardActions, Avatar,
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 
-
 type Props = {
     launch: any
 }
@@ -35,7 +34,7 @@ const LaunchItem:React.FC<Props> = ({launch}) => {
                 title={mission_name}
             />
         <CardActions>
-            <Button size="small" component={RouterLink} to={`/launch/${launch.id}`} > Details </Button>
+            <Button style={{marginLeft: "auto"}} size="small" component={RouterLink} to={`/launch/${launch.id}`} > <ArrowForwardIosIcon /></Button>
         </CardActions>
           
         </Card>
